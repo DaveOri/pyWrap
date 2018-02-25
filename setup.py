@@ -31,14 +31,23 @@ setup(name = 'pyWrap',
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
-cpplib = Extension("pyWrap.cpplib",  # indicate where it should be available !
+# AFAIU Create extension objects to be passed to the setup() function
+cpphellolib = Extension("pyWrap.cpphellolib",  # indicate where it should be available this will be the name of the module to be imported
                       sources=["cython/hello.pyx",
                                "src_cpp/hello.cpp",
                                ],
                       extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall"],
                       language="c++")
 
+cppalgebralib = Extension("pyWrap.cppalgebralib",
+                      sources=["cython/algebra.pyx",
+                               "src_cpp/algebra.cpp",
+                               ],
+                      extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall"],
+                      language="c++")
+
+
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [cpplib]
+    ext_modules = [cpphellolib,cppalgebralib]
     )
