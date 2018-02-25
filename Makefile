@@ -1,3 +1,5 @@
+# NOT USED ANYMORE
+
 # location of the Python header files
  
 PYTHON_VERSION = 3.5
