@@ -7,4 +7,3 @@ cdef extern from "../src_cpp/algebra.h":
     
 cdef extern from "../src_cpp/algebra.h":
     void cadd(const complex a, const complex b, complex c, int N);
-

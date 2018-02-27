@@ -1,3 +1,3 @@
-from pyWrap import cpphellolib, cppalgebralib
+from pyWrap import cpphellolib, cppalgebralib, cScattnlay
 
 

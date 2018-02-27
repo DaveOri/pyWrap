@@ -36,18 +36,26 @@ cpphellolib = Extension("pyWrap.cpphellolib",  # indicate where it should be ava
                       sources=["cython/hello.pyx",
                                "src_cpp/hello.cpp",
                                ],
-                      extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall"],
+                      extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall", "-fPIC"],
                       language="c++")
 
 cppalgebralib = Extension("pyWrap.cppalgebralib",
                       sources=["cython/algebra.pyx",
                                "src_cpp/algebra.cpp",
                                ],
-                      extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall"],
+                      extra_compile_args=["-O3", "--std=c++11", "-ffast-math", "-Wall", "-fPIC"],
                       language="c++")
 
+cScattnlay = Extension("pyWrap.cScattnlay",
+                      sources=["cython/cScattnlay.pyx",
+                               "src_c/scattnlay.c",
+                               "src_c/nmie.c",
+                               "src_c/ucomplex.c"
+                               ],
+                      extra_compile_args=["-O3", "-ffast-math", "-Wall", "-lm", "-fPIC"],
+                      language="c")
 
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [cpphellolib,cppalgebralib]
+    ext_modules = [cpphellolib,cppalgebralib,cScattnlay]
     )
