@@ -4,5 +4,4 @@
 *.a
 .ipynb_checkpoints
 build
-cython/hello.cpp
-cython/algebra.cpp
+cython/*.c*

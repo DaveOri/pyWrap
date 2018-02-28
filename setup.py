@@ -52,10 +52,16 @@ cScattnlay = Extension("pyWrap.cScattnlay",
                                "src_c/nmie.c",
                                "src_c/ucomplex.c"
                                ],
-                      extra_compile_args=["-O3", "-ffast-math", "-Wall", "-lm", "-fPIC"],
+                      extra_compile_args=["-O3", "-ffast-math", "-Wall", "-lm", "-fPIC", "-std=c99"], # might be a problem for non gcc compilers (macosx)
                       language="c")
+
+cMie = Extension("pyWrap.cMie",
+                sources=["cython/cMie.pyx",
+                         "src_c/cMie.c"],
+                extra_compile_args=["-O3", "-ffast-math", "-Wall", "-lm", "-fPIC", "-std=c99"],
+                language='c')
 
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [cpphellolib,cppalgebralib,cScattnlay]
+    ext_modules = [cpphellolib,cppalgebralib,cScattnlay,cMie]
     )
