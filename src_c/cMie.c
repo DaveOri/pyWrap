@@ -24,8 +24,8 @@ void Mie(double x, double complex m) {
 int Nmax(double x, double complex m) {
 // Simpler (conservative) version respect to what proposed by Pena(2009)
     int Nstop = round(x + 4.0*pow(x,1.0/3.0)+2);
-//    complex xm = x*m
-//    printf
     int xml = round(cabs(x*m));
     return max(xml,Nstop) + 15;
 }
+
+
