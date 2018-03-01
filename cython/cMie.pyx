@@ -13,7 +13,7 @@ ctypedef np.int32_t int_t
 ctypedef np.complex128_t complex_t
 
 #def mie(double_t x, complex_t m):#double_t wl,double_t size,complex_t m, th=None):
-def mie(double_t size, double_t wavelength, complex_t m):
+def mie(double_t wavelength, double_t size, complex_t m):
     print('I am python3 c cmie and refractive index is ',m,' and wl is ',wavelength,' and size is ', size)
     cdef double_t x
     x=np.pi*size/wavelength

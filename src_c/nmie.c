@@ -142,6 +142,7 @@ int nMie(int L, double x[], complex m[], int nTheta, double Theta[], double *Qex
   // Calculate D1, D3 and PsiZeta for z1 in the first layer //
   //********************************************************//
   z1 = RCmul(x[1], m[1]);
+printf("m= %.3e +i %.3e, x= %.3e, z1= %.3e +i%.3e\n",m[1].r,m[1].i,x[1],z1.r,z1.i);
 
   // Downward recurrence for D1 - equations (16a) and (16b)
   D1_lmlx[n_max + 1][1] = Complex(0, 0);
@@ -165,7 +166,9 @@ int nMie(int L, double x[], complex m[], int nTheta, double Theta[], double *Qex
     Ha[n][1] = D1_lmlx[n][1];
     Hb[n][1] = D1_lmlx[n][1];
   }
-
+printf("Nmax=%d\n",n_max);
+printf("Ha01= %.3e +i %.3e,Ha11= %.3e +i %.3e,Ha21= %.3e +i %.3e\n",Ha[0][1].r,Ha[0][1].i,Ha[1][1].r,Ha[1][1].i,Ha[2][1].r,Ha[2][1].i);
+printf("Hb01= %.3e +i %.3e,Hb11= %.3e +i %.3e,Hb21= %.3e +i %.3e\n",Hb[0][1].r,Hb[0][1].i,Hb[1][1].r,Hb[1][1].i,Hb[2][1].r,Hb[2][1].i);
   //*******************************************//
   // Iteration from the layer 2 to the layer L //
   //*******************************************//
@@ -273,9 +276,10 @@ int nMie(int L, double x[], complex m[], int nTheta, double Theta[], double *Qex
   // scattering parameters                                               //
   //*********************************************************************//
   x2 = x[L]*x[L];
-
+printf("x2=%.3e\n",x2);
   anP1 = calc_an(1, x[L], Ha[1][L], m[L], PsiXL[1], ZetaXL[1], PsiXL[0], ZetaXL[0]);
   bnP1 = calc_bn(1, x[L], Hb[1][L], m[L], PsiXL[1], ZetaXL[1], PsiXL[0], ZetaXL[0]);
+printf("anP1= %.3e +i %.3e, bnP1= %.3e +i %.3e,\n",anP1.r,anP1.i,bnP1.r,bnP1.i);
   for (n = 1; n <= n_max; n++) {
     an = anP1;
     bn = bnP1;

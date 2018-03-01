@@ -113,7 +113,7 @@ void smain(int L, double x0, double mr0, double mi0) {
 //  if (has_comment) {
 //    printf("%6s, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e\n", comment, Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo);
 //  } else {
-    //printf("%+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e\n", Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo);
+    printf("%+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e, %+.5e\n", Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo);
 //  }
 
 /*  if (nt > 0) {
